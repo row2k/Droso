@@ -33,6 +33,10 @@
   border: 2px dashed rgba(0,0,0,0);
 }
 
+#navbar li.active a {
+  border: 2px dashed white;
+}
+
 .navcolor {
   background-color: #C6E2F2;
 }
@@ -46,16 +50,19 @@
   display: flex;
   height: 200vh;
   flex-wrap: nowrap;
+  flex-direction: row;
 }
 
 .flex-big {
   flex-grow: 1;
+  flex-basis: 0;
   background-color: red;
 
 }
 
 .flex-small {
   flex-grow: 1;
+  flex-basis: 0;
   background-color: blue;
   height: 100%;
 }
@@ -66,7 +73,8 @@
 
 .flexbio {
   display: flex;
-  height: 50vh;
+  flex-grow: 1;
+  height: 80vh;
 }
 
 .footer {
