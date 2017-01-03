@@ -1,17 +1,17 @@
-* {
+/** {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-}
+}*/
 
 .navbar {
-  margin-top:0px;
+  margin-top: 0px;
   width: 100vw;
-  height: 50px;
+  height: 75px;
   position: fixed;
   top: 0;
   align-items: center;
-  display: inline-flex;
+  display: flex;
   justify-content: flex-end;
   -webkit-transition: background-color 0.4s ease;
   transition: background-color 0.4s ease;
@@ -23,8 +23,14 @@
 }
 
 .navbar a {
+  display: inline-block;
+  width: 120px;
+  text-align: center;
   text-decoration: none;
   color: black;
+  padding: 20px 0;
+  margin-left: -40px;
+  border: 2px dashed rgba(0,0,0,0);
 }
 
 .navcolor {
@@ -32,14 +38,14 @@
 }
 
 .maincontainer {
-  margin-top: 50px;
+  margin-top: 75px;
   min-width: 400px;
 }
 
 .flexmain {
   display: flex;
   height: 200vh;
-  flex-wrap:nowrap;
+  flex-wrap: nowrap;
 }
 
 .flex-big {
