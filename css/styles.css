@@ -51,19 +51,15 @@
 .flex-small {
   flex-grow: 1;
   background-color: blue;
-  height: 50%;
+  height: 100%;
 }
 
 .flexmain .column {
   flex-direction: column;
-  flex-grow: 1;
 }
 
 .flexbio {
   display: flex;
-}
-
-.flexbio .flex-small {
   height: 50vh;
 }
 
