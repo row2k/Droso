@@ -1,6 +1,6 @@
 _Final Project Prospectus_
 # [Droso] Fruit Recognizer Playground
-<img align="right" src="img/fruitfly/droso-static.png">
+<img align="right" src="img/fruitfly/droso-static.png" alt="Fruit Fly" style="width:300px;height:300px;">
 Hi, I'm Droso :honeybee:, my full name is _drosophila melanogaster_, a common fruit fly. Actually tho, I'm just a simple robot that knows and learns about fruits. I'll recognize the fruit you give me, and if I'm wrong, you're welcome to teach me the correct name.
 
 ### Functionality
