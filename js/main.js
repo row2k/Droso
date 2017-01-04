@@ -27,6 +27,41 @@ $(window).scroll(collapseNavbar); //run check whenever scroll happens
 $(document).ready(collapseNavbar); //run check whenever page reloads
 
 $(document).ready(function() {
+////fly animations
+//fly blink
+function blinkEyes() {
+  $('#drosoEyesClosed').fadeTo(0,1);
+  $('#drosoEyesClosed').stop().delay(200).animate({opacity:0}, 0, function() {});
+}
+window.setInterval(blinkEyes, 3000);
+
+//stop fly fixed position before reaching bios
+var windw = this;
+$.fn.followTo = function(pos){var $this = this,$window = $(windw);$window.scroll(function(e){
+if ($(window).scrollTop() > pos) {
+  $this.css({
+    position: 'absolute',
+    top: 350 + pos
+  });
+} else {
+  $this.css({
+    position: 'fixed',
+    top: 350
+  });
+}
+});};
+$('#drosoWrapper').followTo(900);
+//fly move wings
+function animateWings() {
+  if($("#droso").offset().top % 7 == 0) {
+    $('#droso').removeClass("droso-static");
+    $('#droso').addClass("droso-flying");
+  } else {
+    $('#droso').removeClass("droso-flying");
+    $('#droso').addClass("droso-static");
+  }
+}
+$(window).scroll(animateWings);
     // $(document).on('click', 'a[href*="#"]', function(event){
     //     event.preventDefault();
     //
