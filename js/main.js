@@ -41,16 +41,16 @@ $.fn.followTo = function(pos){var $this = this,$window = $(windw);$window.scroll
 if ($(window).scrollTop() > pos) {
   $this.css({
     position: 'absolute',
-    top: 350 + pos
+    top: 150 + pos
   });
 } else {
   $this.css({
     position: 'fixed',
-    top: 350
+    top: 150
   });
 }
 });};
-$('#drosoWrapper').followTo(900);
+$('#drosoWrapper').followTo(700);
 //fly move wings
 function animateWings() {
   if($("#droso").offset().top % 7 == 0) {
@@ -62,16 +62,7 @@ function animateWings() {
   }
 }
 $(window).scroll(animateWings);
-    // $(document).on('click', 'a[href*="#"]', function(event){
-    //     event.preventDefault();
-    //
-    //     $('html, body').animate({
-    //         scrollTop: $( $.attr(this, 'href') ).offset().top - 75
-    //     }, 500).delay(200);
-    //
-    //     $("a").css("border","2px dashed rgba(0,0,0,0)");
-    //     $(this).css("border","2px dashed white");
-    // });
+
 
     // Cache selectors
     var lastId,
@@ -160,7 +151,7 @@ $(window).scroll(animateWings);
   				triggerFormSubmit = function()
   				{
   					var event = document.createEvent( 'HTMLEvents' );
-  					event.initEvent( 'submit', true, false );
+  					event.initEvent( 'submit', true, false );``
   					form.dispatchEvent( event );
   				};
 
