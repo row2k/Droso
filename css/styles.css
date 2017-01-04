@@ -7,7 +7,7 @@
 body {
   font-family: "Roboto",sans-serif;
 }
-
+/*--------navbar-------------------*/
 .navbar {
   top:0;
   margin:0;
@@ -19,11 +19,15 @@ body {
   justify-content: flex-end;
   -webkit-transition: background-color 0.5s ease-in-out, padding 0.5s ease-in-out;
   transition: background-color 0.5s ease-in-out, padding 0.5s ease-in-out;
+  z-index:10;
 }
 
 .navbar li {
   font-family: "Roboto",sans-serif;
   margin-right: 60px;
+}
+.navbar li:hover {
+  opacity: 0.6;
 }
 
 .navbar a {
@@ -49,7 +53,7 @@ body {
 .maincontainer {
   min-width: 400px;
 }
-
+/*--------flex layout-------------------*/
 .flexmain {
   display: flex;
   height: 200vh;
@@ -60,16 +64,25 @@ body {
 .flex-big {
   flex-grow: 1;
   flex-basis: 0;
-  background-color: red;
 
 }
 
 .flex-small {
   flex-grow: 1;
   flex-basis: 0;
-  background-color: blue;
   height: 100%;
 }
+/*testing*/
+/*.flex-small:nth-of-type(2) {
+  background-color: #123456;
+}
+.flex-small:nth-of-type(3) {
+  background-color: #654321;
+}
+.flex-small:nth-of-type(4) {
+  background-color: #435261;
+}*/
+/*end testing*/
 
 #about {
   display: flex;
@@ -92,7 +105,7 @@ body {
   margin-top: 20px;
   margin-left: 30px;
   width: 250px;
-  background-color: white;
+  background-color: #C6E2F2;
   height: 35px;
   text-align: center;
   padding-top: 14px;
@@ -132,7 +145,6 @@ a:visited {
   margin-top: 50px;
   margin-left: 25px;
   font-size: 25px;
-  color: white;
 }
 
 .dragform {
@@ -197,6 +209,8 @@ strong:hover {
   background-color: white;
   outline: 2px dashed black;
   outline-offset: -10px;
+  height: 60%;
+  width: 80%;
 }
 .box.has-advanced-upload .box__dragndrop {
   display: inline;
@@ -218,12 +232,95 @@ strong:hover {
 .flexbio {
   display: flex;
   flex-grow: 1;
-  height: 80vh;
+  height: 70vh;
+}
+
+.bio-wrapper {
+  background-color: #eee;
+  height:100%;
+  padding: 10vh 5vh;
+  text-align: center;
+}
+
+.bio-image {
+  border-radius: 50%;
+  display:inline-block;
+  width: 20vw;
+  height: 20vw;
+  max-height: 300px;
+  max-width: 300px;
+  background-size: cover;
+  background-position: center;
+}
+.bio-image.brittwalker {
+  background-image: url("../img/brittwalker.jpg");
+  border:5px solid #09f;
+}
+.bio-image.row2k {
+  background-image: url("../img/row2k.jpg");
+  border:5px solid #f70;
+}
+.bio-content {
+  display:inline-block;
+  background-color: #0ee;
+  margin-top:5vh;
+  padding:2vh;
+  height: auto;
+}
+.bio-icons {
+  display:inline-block;
+  background-color: #aaa;
+  margin-top:5vh;
+  height: 5vh;
+  width:80%;
 }
 
 .footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50px;
+  background-color: #C6E2F2;
+  text-align: center;
+
+  height: 2vh;
+  padding: 1.5vh 0;
+  position:absolute;
+  top:290vh;
+  width: 100vw;
+  z-index: 9;
+}
+
+
+
+/*---------fly animation---------------*/
+#drosoWrapper {
+  height: 250px;
+  width: 250px;
+  position: fixed;
+  top: 35%;
+  left: 17%;
+}
+#droso {
+  -webkit-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+}
+.droso-static {
+  background-image: url("../img/fruitfly/droso-static.png");
+}
+.droso-flying {
+  background-image: url("../img/fruitfly/droso-fly.png");
+}
+#drosoEyesClosed {
+  background-image: url("../img/fruitfly/droso-eyes-close.png");
+  -webkit-background-size: cover;
+  background-size: cover;
+  height: 57.5px;
+  width: 84.375px;
+
+  position: absolute;
+  top: 46px;
+  left: 45px;
+
+  z-index: 8;
+  opacity: 0;
 }

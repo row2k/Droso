@@ -18,51 +18,67 @@
   </ul>
 </nav>
 <section class="maincontainer">
+  <div id="drosoWrapper">
+    <div id="droso" class="droso-static"></div>
+    <div id="drosoEyesClosed"></div>
+  </div>
   <div class="flexmain">
-      <div class="flex-big">
-        <div class="flyimg">
-          Div for moving fly
+    <div class="flex-big"></div>
+    <div class="flexmain flex-small column" >
+      <div class="flex-small" id="about">
+        <div class="aboutcontent">
+          <h1>Hi, I'm <span id="drosohead">Droso!</span></h1>
+          <p>
+            My full name is drosophila melanogaster, and I'm just a simple robot that knows and learns about fruits. I'll recognize the fruit you give me, and if I'm wrong, you're welcome to teach me the correct name.
+          </p>
+        </div>
+        <a href="#play">
+          <div class="playbutton" id="playbutton">
+            Click here to play!
+          </div>
+        </a>
+      </div>
+      <div class="flex-small" id="play">
+        <div class="readytext">
+          Ready to begin analysis...
+        </div>
+        <div class ="dragform">
+          <form class="box" method="post" action="" enctype="multipart/form-data">
+            <div class="box__input">
+              <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
+              <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
+              <button class="box__button" type="submit">Upload</button>
+            </div>
+            <div class="box__uploading">Uploading&hellip;</div>
+            <div class="box__success">Done!</div>
+            <div class="box__error">Error! <span></span>.</div>
+          </form>
         </div>
       </div>
-
-      <div class="flexmain flex-small column" >
-
-             <div class="flex-small" id="about">
-               <div class="aboutcontent">
-               <h1>Hi, I'm <span id="drosohead">Droso!</span></h1>
-               <p>
-                 My full name is drosophila melanogaster, and I'm just a simple robot that knows and learns about fruits. I'll recognize the fruit you give me, and if I'm wrong, you're welcome to teach me the correct name.
-               </p>
-              </div>
-              <a href="#play"><div class="playbutton" id="playbutton">
-                Click here to play!
-              </div></a>
-             </div>
-             <div class="flex-small" id="play">
-               <div class="readytext">
-                 Ready to begin analysis...
-               </div>
-               <div class ="dragform">
-                 <form class="box" method="post" action="" enctype="multipart/form-data">
-                    <div class="box__input">
-                      <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
-                      <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
-                      <button class="box__button" type="submit">Upload</button>
-                    </div>
-                    <div class="box__uploading">Uploading&hellip;</div>
-                    <div class="box__success">Done!</div>
-                    <div class="box__error">Error! <span></span>.</div>
-                  </form>
-               </div>
-            </div>
-      </div>
+    </div>
   </div>
   <div class="flexbio" id="bios">
     <div class="flex-small">
-      Space for bio1
+      <div class="bio-wrapper">
+        <div class="bio-image brittwalker"></div>
+        <div class="bio-content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </div>
+        <div class="bio-icons">
+          bio icons here
+        </div>
+      </div>
     </div>
     <div class="flex-small">
-     Space for bio2
+     <div class="bio-wrapper">
+       <div class="bio-image row2k"></div>
+       <div class="bio-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+       </div>
+       <div class="bio-icons">
+         bio icons here
+       </div>
+     </div>
     </div>
   </div>
 </section>
