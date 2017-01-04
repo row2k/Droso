@@ -13,6 +13,7 @@ body {
   width: 100vw;
   height: 75px;
   position: fixed;
+  z-index: 1;
   top: 0;
   align-items: center;
   display: flex;
@@ -98,6 +99,16 @@ body {
   font-weight: bold;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+  border: none;
+}
+
 #drosohead {
   font-family: "Slabo 27px",sans-serif;
   font-size: 4rem;
@@ -113,15 +124,23 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: left;
+}
+
+.readytext {
+  flex: .5 0 0;
+  margin-top: 50px;
+  margin-left: 25px;
+  font-size: 25px;
+  color: white;
 }
 
 .dragform {
+  flex: 3 0 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  margin-top: -100px;
 }
 
 /*Dynamic styling*/
@@ -170,7 +189,7 @@ strong:hover {
 }
 
 .box__button {
-  display: block;
+  display: none;
   margin: 20px auto;
 }
 

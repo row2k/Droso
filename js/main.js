@@ -64,6 +64,15 @@ $(document).ready(function() {
        }
     });
 
+    $("#playbutton").click(function(e){
+      var href = "#play",
+          offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+      $('html, body').stop().animate({
+          scrollTop: offsetTop + 14
+      }, 300);
+      e.preventDefault();
+    });
+
     //JS for the drag and drop
 
 
