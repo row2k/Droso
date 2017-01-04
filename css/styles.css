@@ -209,6 +209,8 @@ strong:hover {
   background-color: white;
   outline: 2px dashed black;
   outline-offset: -10px;
+  height: 60%;
+  width: 80%;
 }
 .box.has-advanced-upload .box__dragndrop {
   display: inline;
