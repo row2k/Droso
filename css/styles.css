@@ -53,7 +53,7 @@ body {
 .maincontainer {
   min-width: 400px;
 }
-
+/*--------flex layout-------------------*/
 .flexmain {
   display: flex;
   height: 200vh;
@@ -72,6 +72,17 @@ body {
   flex-basis: 0;
   height: 100%;
 }
+/*testing*/
+/*.flex-small:nth-of-type(2) {
+  background-color: #123456;
+}
+.flex-small:nth-of-type(3) {
+  background-color: #654321;
+}
+.flex-small:nth-of-type(4) {
+  background-color: #435261;
+}*/
+/*end testing*/
 
 #about {
   display: flex;
