@@ -97,15 +97,15 @@ body {
 
 .aboutcontent {
   max-width: 60%;
-  margin-left: 30px;
-  margin-top: -80px;
+  margin-left: 5vw;
+  margin-top: -20vh;
 }
 
 .playbutton {
   border-radius: 5px;
   display: block;
-  margin-top: 20px;
-  margin-left: 30px;
+  margin-top: 5vh;
+  margin-left: 5vw;
   width: 250px;
   background-color: #227772;
   height: 35px;
