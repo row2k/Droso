@@ -9,17 +9,16 @@ body {
 }
 
 .navbar {
-  margin-top: 0px;
-  width: 100vw;
-  height: 75px;
+  top:0;
+  margin:0;
+  width: 100%;
+  padding: 20px 0;
   position: fixed;
-  z-index: 1;
-  top: 0;
   align-items: center;
   display: flex;
   justify-content: flex-end;
-  -webkit-transition: background-color 0.4s ease;
-  transition: background-color 0.4s ease;
+  -webkit-transition: background-color 0.5s ease-in-out, padding 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out, padding 0.5s ease-in-out;
 }
 
 .navbar li {
@@ -42,12 +41,12 @@ body {
   border: 2px dashed white;
 }
 
-.navcolor {
+.navbar-collapse {
   background-color: #C6E2F2;
+  padding:0;
 }
 
 .maincontainer {
-  margin-top: 75px;
   min-width: 400px;
 }
 
@@ -88,6 +87,7 @@ body {
 }
 
 .playbutton {
+  border-radius: 5px;
   display: block;
   margin-top: 20px;
   margin-left: 30px;
