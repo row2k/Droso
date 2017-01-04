@@ -46,12 +46,13 @@ body {
 }
 
 .navbar-collapse {
-  background-color: #C6E2F2;
+  background-color: #63E1D3;
   padding:0;
 }
 
 .maincontainer {
   min-width: 400px;
+  height: 300vh;
 }
 /*--------flex layout-------------------*/
 .flexmain {
@@ -59,6 +60,7 @@ body {
   height: 200vh;
   flex-wrap: nowrap;
   flex-direction: row;
+  margin-top: 50px;
 }
 
 .flex-big {
@@ -105,11 +107,12 @@ body {
   margin-top: 20px;
   margin-left: 30px;
   width: 250px;
-  background-color: #C6E2F2;
+  background-color: #227772;
   height: 35px;
   text-align: center;
   padding-top: 14px;
   font-weight: bold;
+  color: white;
 }
 
 a {
@@ -174,7 +177,7 @@ a:visited {
 }
 
 .box__input {
-  width: 70%;
+  width: 100%;
   text-align: center;
 }
 
@@ -228,6 +231,7 @@ strong:hover {
 }
 .box.is-uploading .box__uploading {
   display: block;
+  padding-top: 20px;
 }
 
 .box.is-error {
@@ -239,12 +243,17 @@ strong:hover {
 
 .flexbio {
   display: flex;
-  flex-grow: 1;
-  height: 70vh;
+  flex-direction: row;
+  flex-grow: 0 0 0;
+  height: 80vh;
 }
 
 .bio-wrapper {
-  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  align-items: center;
+  background-color: #E0FFDD;
   height:100%;
   padding: 10vh 5vh;
   text-align: center;
@@ -252,48 +261,67 @@ strong:hover {
 
 .bio-image {
   border-radius: 50%;
-  display:inline-block;
-  width: 20vw;
-  height: 20vw;
+  /*display:block;*/
+  min-width: 20vw;
+  min-height: 20vw;
+  /*display: flex;
+  flex-direction: row;
+  min-width: 20vw;
+  min-height: 20vw;*/
   max-height: 300px;
   max-width: 300px;
   background-size: cover;
   background-position: center;
+
 }
+
 .bio-image.brittwalker {
   background-image: url("../img/brittwalker.jpg");
-  border:5px solid #09f;
+  border:5px solid #227772;
 }
 .bio-image.row2k {
   background-image: url("../img/row2k.jpg");
-  border:5px solid #f70;
+  border:5px solid #227772;
 }
 .bio-content {
   display:inline-block;
-  background-color: #0ee;
+  /*background-color: #63E1D3;*/
+  border-radius: 5px;
   margin-top:5vh;
   padding:2vh;
   height: auto;
 }
 .bio-icons {
   display:inline-block;
-  background-color: #aaa;
+  background-color: #227772;
   margin-top:5vh;
   height: 5vh;
   width:80%;
 }
 
 .footer {
-  background-color: #C6E2F2;
-  text-align: center;
+  display: flex;
+  flex: 1 0 0;
+  height: 10vh;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #63E1D3;
+  z-index: 100;
+}
 
+/*.footer {
+  background-color: #63E1D3;
+  text-align: center;
+  display: block;
   height: 2vh;
   padding: 1.5vh 0;
   position:absolute;
   top:290vh;
   width: 100vw;
   z-index: 9;
-}
+}*/
 
 
 
