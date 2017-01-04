@@ -109,6 +109,93 @@ body {
   flex-direction: column;
 }
 
+#play {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dragform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -100px;
+}
+
+/*Dynamic styling*/
+.box__dragndrop,
+.box__uploading,
+.box__success,
+.box__error {
+  display: none;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 300px;
+}
+
+.box__input {
+  width: 70%;
+}
+
+.box__file {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.box__file + strong {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: black;
+    background-color: white;
+    display: inline-block;
+}
+
+strong:hover {
+  color: blue;
+}
+
+.box__file:focus + label,
+.box__file + label:hover {
+}
+
+.box__button {
+  display: block;
+  margin: 20px auto;
+}
+
+.box.has-advanced-upload {
+  background-color: white;
+  outline: 2px dashed black;
+  outline-offset: -10px;
+}
+.box.has-advanced-upload .box__dragndrop {
+  display: inline;
+}
+
+.box.is-dragover {
+  background-color: grey;
+}
+
+.box.is-uploading .box__input {
+  visibility: none;
+}
+.box.is-uploading .box__uploading {
+  display: block;
+}
+
+/*end dynamic styling*/
+
 .flexbio {
   display: flex;
   flex-grow: 1;
