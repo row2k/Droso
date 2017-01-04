@@ -218,7 +218,47 @@ strong:hover {
 .flexbio {
   display: flex;
   flex-grow: 1;
-  height: 80vh;
+  height: 70vh;
+}
+
+.bio-wrapper {
+  background-color: #eee;
+  height:100%;
+  padding: 10vh 5vh;
+  text-align: center;
+}
+
+.bio-image {
+  border-radius: 50%;
+  display:inline-block;
+  width: 20vw;
+  height: 20vw;
+  max-height: 300px;
+  max-width: 300px;
+  background-size: cover;
+  background-position: center;
+}
+.bio-image.brittwalker {
+  background-image: url("../img/brittwalker.jpg");
+  border:5px solid #09f;
+}
+.bio-image.row2k {
+  background-image: url("../img/row2k.jpg");
+  border:5px solid #f70;
+}
+.bio-content {
+  display:inline-block;
+  background-color: #0ee;
+  margin-top:5vh;
+  padding:2vh;
+  height: auto;
+}
+.bio-icons {
+  display:inline-block;
+  background-color: #aaa;
+  margin-top:5vh;
+  height: 5vh;
+  width:80%;
 }
 
 .footer {
