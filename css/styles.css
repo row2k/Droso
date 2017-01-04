@@ -261,13 +261,8 @@ strong:hover {
 
 .bio-image {
   border-radius: 50%;
-  /*display:block;*/
-  min-width: 20vw;
-  min-height: 20vw;
-  /*display: flex;
-  flex-direction: row;
-  min-width: 20vw;
-  min-height: 20vw;*/
+  min-width: 18vw;
+  min-height: 18vw;
   max-height: 300px;
   max-width: 300px;
   background-size: cover;
@@ -279,10 +274,12 @@ strong:hover {
   background-image: url("../img/brittwalker.jpg");
   border:5px solid #227772;
 }
+
 .bio-image.row2k {
   background-image: url("../img/row2k.jpg");
   border:5px solid #227772;
 }
+
 .bio-content {
   display:inline-block;
   /*background-color: #63E1D3;*/
@@ -291,6 +288,7 @@ strong:hover {
   padding:2vh;
   height: auto;
 }
+
 .bio-icons {
   display:inline-block;
   background-color: #227772;
@@ -308,7 +306,6 @@ strong:hover {
   align-items: center;
   justify-content: center;
   background-color: #63E1D3;
-  z-index: 100;
 }
 
 /*.footer {
