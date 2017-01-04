@@ -276,8 +276,14 @@ strong:hover {
 }
 
 .footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50px;
+  background-color: #C6E2F2;
+  text-align: center;
+
+  height: 2vh;
+  padding: 1.5vh 0;
+  position:absolute;
+  top:290vh;
+  width: 100vw;
+  z-index: 9;
+}
 }
