@@ -41,16 +41,16 @@ $.fn.followTo = function(pos){var $this = this,$window = $(windw);$window.scroll
 if ($(window).scrollTop() > pos) {
   $this.css({
     position: 'absolute',
-    top: 75 + pos
+    top: 150 + pos
   });
 } else {
   $this.css({
     position: 'fixed',
-    top: 75
+    top: 150
   });
 }
 });};
-$('#drosoWrapper').followTo(900);
+$('#drosoWrapper').followTo(700);
 //fly move wings
 function animateWings() {
   if($("#droso").offset().top % 7 == 0) {
