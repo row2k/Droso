@@ -41,7 +41,7 @@ $(document).ready(function() {
     // Cache selectors
     var lastId,
         topMenu = $("#navbar"),
-        topMenuHeight = topMenu.outerHeight()+15,
+        topMenuHeight = topMenu.outerHeight()-25,
         // All list items
         menuItems = topMenu.find("a"),
         // Anchors corresponding to menu items
@@ -277,6 +277,4 @@ $(document).ready(function() {
 
   		});
   	}( document, window, 0 ));
-
-
 });
