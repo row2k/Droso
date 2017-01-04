@@ -1,12 +1,32 @@
-$(document).ready(function() {
-    $(window).scroll(function() { // check if scroll event happened
-      if ($(document).scrollTop() > 0) { // check if user scrolled more than 50 from top of the browser window
-        $(".navbar").addClass("navcolor"); // if yes, then change the color of class "navbar-fixed-top" to white (#f8f8f8)
-      } else {
-        $(".navbar").removeClass("navcolor"); // if not, change it back to transparent
-      }
-    });
+/*
+#######################################
+#droso fruit recognizer
+#(c)brittany walker,rowland zhang 2016
+#######################################
+*/
+////prevent default
+$(window).keydown(function(event) {
+  if(event.keyCode == 13) { //prevent return form submit
+    event.preventDefault();
+    return false;
+  } else if (event.keyCode == 8) { //prevent backspace nav
+    event.preventDefault();
+    return false;
+  }
+});
 
+////navbar collapse,shade
+function collapseNavbar() {
+  if ($(".navbar").offset().top > 50) { // check if user is more than 50 from top
+    $(".navbar").addClass("navbar-collapse");
+  } else {
+    $(".navbar").removeClass("navbar-collapse");
+  }
+}
+$(window).scroll(collapseNavbar); //run check whenever scroll happens
+$(document).ready(collapseNavbar); //run check whenever page reloads
+
+$(document).ready(function() {
     // $(document).on('click', 'a[href*="#"]', function(event){
     //     event.preventDefault();
     //
