@@ -254,7 +254,6 @@ $(window).scroll(animateWings);
                 }
                 else {
                   console.log('Something went terribly wrong...');
-                  form.classList.add('is-error');
                 }
               };
 
