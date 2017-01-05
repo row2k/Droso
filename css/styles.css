@@ -234,9 +234,8 @@ strong:hover {
   padding-top: 20px;
 }
 
-.box.is-error {
+.box.is-error .box__error{
   display: block;
-  content: "Error!";
 }
 
 /*end dynamic styling*/

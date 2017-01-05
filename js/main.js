@@ -250,10 +250,11 @@ $(window).scroll(animateWings);
             xhr.onload = function () {
               if (xhr.status === 200) {
                   console.log('all done: ' + xhr.status);
-                  form.classList.add( data.success == true ? 'is-success' : 'is-error' );
-    							if( !data.success ) errorMsg.textContent = data.error;
+                  form.classList.add('is-success');
                 } else {
+                  errorMsg.textContent = data.error;
                   console.log('Something went terribly wrong...');
+                  form.classList.add('is-error');
                 }
               };
 
