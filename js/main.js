@@ -252,7 +252,6 @@ $(window).scroll(animateWings);
                   console.log('all done: ' + xhr.status);
                   form.classList.add('is-success');
                 } else {
-                  errorMsg.textContent = data.error;
                   console.log('Something went terribly wrong...');
                   form.classList.add('is-error');
                 }
