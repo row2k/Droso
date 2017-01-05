@@ -156,11 +156,16 @@ $(window).scroll(animateWings);
   				};
 
   			// letting the server side to know we are going to make an Ajax request
-  			var ajaxFlag = document.createElement( 'input' );
-  			ajaxFlag.setAttribute( 'type', 'hidden' );
-  			ajaxFlag.setAttribute( 'name', 'ajax' );
-  			ajaxFlag.setAttribute( 'value', 1 );
-  			form.appendChild( ajaxFlag );
+  			var xhrFlag = document.createElement( 'input' );
+  			xhrFlag.setAttribute( 'type', 'hidden' );
+  			xhrFlag.setAttribute( 'name', 'ajax' );
+  			xhrFlag.setAttribute( 'value', 1 );
+  			form.appendChild( xhrFlag );
+
+        var formData = new FormData();
+        for (var i = 0; i < droppedFiles.length; i++) {
+        formData.append('file', droppedFiles[i]);
+}
 
   			// automatically submit the form on file select
   			input.addEventListener( 'change', function( e )
@@ -227,20 +232,34 @@ $(window).scroll(animateWings);
   					e.preventDefault();
 
   					// gathering the form data
-  					var ajaxData = new FormData( form );
+  					var formData = new FormData( form );
   					if( droppedFiles )
   					{
   						Array.prototype.forEach.call( droppedFiles, function( file )
   						{
-  							ajaxData.append( input.getAttribute( 'name' ), file );
+  							formData.append( input.getAttribute( 'name' ), file );
   						});
   					}
 
   					// ajax request
-  					var ajax = new XMLHttpRequest();
-  					ajax.open( form.getAttribute( 'method' ), form.getAttribute( 'action' ), true );
+  					/*var ajax = new XMLHttpRequest();
+  					ajax.open( form.getAttribute( 'method' ), form.getAttribute( 'action' ), true );*/
 
-  					ajax.onload = function()
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/upload');
+            xhr.onload = function () {
+              if (xhr.status === 200) {
+                  console.log('all done: ' + xhr.status);
+                  form.classList.add( data.success == true ? 'is-success' : 'is-error' );
+    							if( !data.success ) errorMsg.textContent = data.error;
+                } else {
+                  console.log('Something went terribly wrong...');
+                }
+              };
+
+
+
+  					/*ajax.onload = function()
   					{
   						form.classList.remove( 'is-uploading' );
   						if( ajax.status >= 200 && ajax.status < 400 )
@@ -251,15 +270,15 @@ $(window).scroll(animateWings);
   						}
   						else alert( 'Error. Please, contact the webmaster!' );
   					};
-
-  					ajax.onerror = function()
+*/
+  					xhr.onerror = function()
   					{
   						form.classList.remove( 'is-uploading' );
   						alert( 'Error. Please, try again!' );
   					};
 
-  					ajax.send( ajaxData );
-  				}
+  					  xhr.send(formData);
+            }
   				else // fallback Ajax solution upload for older browsers
   				{
   					var iframeName	= 'uploadiframe' + new Date().getTime(),
