@@ -251,9 +251,11 @@ $(window).scroll(animateWings);
               if (xhr.status === 200) {
                   console.log('all done: ' + xhr.status);
                   form.classList.add('is-success');
-                } else {
+                }
+                else {
                   console.log('Something went terribly wrong...');
                   form.classList.add('is-error');
+                  form.classList.remove('is-uploading');
                 }
               };
 
