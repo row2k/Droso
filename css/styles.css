@@ -211,7 +211,7 @@ strong:hover {
   margin: 20px auto;
 }
 
-.box.has-advanced-upload {
+.box {
   background-color: white;
   outline: 2px dashed black;
   outline-offset: -10px;
