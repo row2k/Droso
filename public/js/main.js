@@ -131,7 +131,6 @@ $(window).scroll(animateWings);
         //JS for the drag and drop
 
 
-
     	'use strict';
 
     	;( function ( document, window, index )
@@ -162,7 +161,6 @@ $(window).scroll(animateWings);
     					var event = document.createEvent( 'HTMLEvents' );
     					event.initEvent( 'submit', true, false );
     					form.dispatchEvent( event );
-
     				};
 
           var formData = new FormData();
@@ -173,7 +171,9 @@ $(window).scroll(animateWings);
     			// automatically submit the form on file select
     			input.addEventListener( 'change', function( e )
     			{
-    				showFiles( e.target.files );
+            pickedFiles = e.target.files;
+    				showFiles( pickedFiles );
+            console.log(pickedFiles);
     				triggerFormSubmit();
 
 
@@ -243,11 +243,16 @@ $(window).scroll(animateWings);
     						});
     					}
 
+              if (droppedFiles == false) {
+                droppedFiles = pickedFiles;
+              }
+
                 var inFile = droppedFiles[0];
-                console.log(inFile);
                 var filename = inFile.name;
-                var storageRef = firebase.storage().ref('/images/' + filename);
-                var uploadTask = storageRef.put(inFile);
+                var storageRef = firebase.storage().ref();
+                var folderRef = storageRef.child('images');
+                var imgRef = folderRef.child(filename);
+                var uploadTask = imgRef.put(inFile);
 
                 // Register three observers:
                 // 1. 'state_changed' observer, called any time the state changes
@@ -275,8 +280,12 @@ $(window).scroll(animateWings);
                     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
                     form.classList.remove('is-uploading');
                     form.classList.add('is-success');
-                    var downloadURL = uploadTask.snapshot.downloadURL;
                     console.log('success');
+                    var imageURL = storageRef.child('/images/'+filename+'').getDownloadURL();
+                    imageURL.then(function(url){
+                      $('.is-success').prepend('<img src="'+ url + '"/>');
+                    })
+                    console.log(imageURL);
                   });
 
 
@@ -309,15 +318,19 @@ $(window).scroll(animateWings);
 
 
     			// restart the form if has a state of error/success
-    			Array.prototype.forEach.call( restart, function( entry )
+    			/*Array.prototype.forEach.call( restart, function( entry )
     			{
-    				entry.addEventListener( 'click', function( e )
+    				entry.addEventListener( 'click',
+            $('#replay').click(function( e )
     				{
     					e.preventDefault();
+              $('.is-success img').remove();
     					form.classList.remove('is-error'); form.classList.remove('is-success');
+              droppedFiles = false;
+              pickedFiles = false;
     					input.click();
     				});
-    			});
+    			//});*/
 
     			// Firefox focus bug fix for file input
     			input.addEventListener( 'focus', function(){ input.classList.add( 'has-focus' ); });
