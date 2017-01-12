@@ -173,9 +173,7 @@ $(window).scroll(animateWings);
     			// automatically submit the form on file select
     			input.addEventListener( 'change', function( e )
     			{
-            pickedFiles = e.target.files;
-            alert(pickedFiles);
-    				showFiles( pickedFiles );
+    				showFiles( e.target.files );
     				triggerFormSubmit();
 
 
@@ -245,9 +243,6 @@ $(window).scroll(animateWings);
     						});
     					}
 
-              if (droppedFiles == null) {
-                droppedFiles = pickedFiles;
-              }
                 var inFile = droppedFiles[0];
                 console.log(inFile);
                 var filename = inFile.name;
