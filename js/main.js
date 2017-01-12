@@ -131,7 +131,6 @@ $(window).scroll(animateWings);
         //JS for the drag and drop
 
 
-
     	'use strict';
 
     	;( function ( document, window, index )
@@ -162,7 +161,6 @@ $(window).scroll(animateWings);
     					var event = document.createEvent( 'HTMLEvents' );
     					event.initEvent( 'submit', true, false );
     					form.dispatchEvent( event );
-
     				};
 
           var formData = new FormData();
@@ -174,7 +172,6 @@ $(window).scroll(animateWings);
     			input.addEventListener( 'change', function( e )
     			{
             pickedFiles = e.target.files;
-            alert(pickedFiles);
     				showFiles( pickedFiles );
     				triggerFormSubmit();
 
@@ -212,7 +209,7 @@ $(window).scroll(animateWings);
     				form.addEventListener( 'drop', function( e )
     				{
     					droppedFiles = e.dataTransfer.files; // the files that were dropped
-    					showFiles( droppedFiles );
+    					//showFiles( droppedFiles );
 
 
     					triggerFormSubmit();
@@ -246,8 +243,9 @@ $(window).scroll(animateWings);
     					}
 
               if (droppedFiles == null) {
-                droppedFiles = pickedFiles;
+                droppedFiles = document.getElementById("file").files[0];
               }
+
                 var inFile = droppedFiles[0];
                 console.log(inFile);
                 var filename = inFile.name;
