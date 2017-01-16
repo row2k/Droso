@@ -286,6 +286,7 @@ $(window).scroll(animateWings);
                       $('.is-success').prepend('<img src="'+ url + '"/>');
                     })
                     console.log(imageURL);
+                    $("#replay").css("display","block");
                   });
 
 

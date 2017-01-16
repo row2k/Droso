@@ -251,7 +251,7 @@ strong:hover {
 
 #replay {
   border-radius: 5px;
-  display: block;
+  display: none;
   width: 250px;
   background-color: #227772;
   height: 35px;
