@@ -291,7 +291,8 @@ $(window).scroll(animateWings);
 
                     var imageURL = storageRef.child('/images/'+filename+'').getDownloadURL();
                     imageURL.then(function(url){
-                      $('.is-success').prepend('<img src="'+ url + '"/>');
+                    //  $('.is-success').prepend('<img src="'+ url + '"/>');
+                    $('.is-success').css('background-image','url("'+ url +'")');
                     })
                     console.log(imageURL);
                     $("#replay").css("display","block");
@@ -299,7 +300,7 @@ $(window).scroll(animateWings);
                     $("#loading").css("display","block");
                     $("#result").css("display","block");
 
-                    
+
                     firebase.database().ref('images/image1').once('value').then(function(snapshot) {
                       var imgText = snapshot.val();
                       console.log(imgText);
@@ -363,7 +364,8 @@ $(window).scroll(animateWings);
 
         $("#replay").click(function(event){
           event.preventDefault;
-          $('.is-success img').remove();
+          //$('.is-success img').remove();
+          $('.is-success').css('background-image','none');
           $('.dragform form').removeClass('is-error');
           $('.dragform form').removeClass('is-success');
           $('.dragform form').removeClass('is-uploading');
