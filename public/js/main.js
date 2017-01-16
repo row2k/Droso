@@ -128,6 +128,12 @@ $(window).scroll(animateWings);
      this.auth = firebase.auth();
      this.storage = firebase.storage();
 
+     //var imgtextRef = this.database().ref('images/');
+     /*imgtextRef.on('value', function(snapshot) {
+       var curImages = imgtextRef.snapshot.val();
+       console.log(curImages);
+     });*/
+
         //JS for the drag and drop
 
 
@@ -268,19 +274,21 @@ $(window).scroll(animateWings);
                     console.log('Upload is paused');
                     break;
                     case firebase.storage.TaskState.RUNNING: // or 'running'
-                    console.log('Upload is running');
                     form.classList.add('is-uploading');
+                    console.log('Upload is running');
                     break;
                   }
                   }, function(error) {
                     form.classList.remove('is-uploading');
                     form.classList.add('is-error');
                   }, function() {
+
                     // Handle successful uploads on complete
                     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
                     form.classList.remove('is-uploading');
                     form.classList.add('is-success');
                     console.log('success');
+
                     var imageURL = storageRef.child('/images/'+filename+'').getDownloadURL();
                     imageURL.then(function(url){
                       $('.is-success').prepend('<img src="'+ url + '"/>');
@@ -290,6 +298,13 @@ $(window).scroll(animateWings);
                     $("#ready").css("display","none");
                     $("#loading").css("display","block");
                     $("#result").css("display","block");
+
+                    
+                    firebase.database().ref('images/image1').once('value').then(function(snapshot) {
+                      var imgText = snapshot.val();
+                      console.log(imgText);
+                      $("#fruitname").html(''+ imgText +'');
+                    });
                   });
 
 
@@ -342,11 +357,16 @@ $(window).scroll(animateWings);
 
     		});
 
-        $("#replay").click(function(){
+        $("#play a").click(function(event) {
+          event.preventDefault();
+        });
+
+        $("#replay").click(function(event){
+          event.preventDefault;
           $('.is-success img').remove();
-          $('.dragform form').remove('is-error');
-          $('.dragform form').remove('is-success');
-          $('.dragform form').remove('is-uploading');
+          $('.dragform form').removeClass('is-error');
+          $('.dragform form').removeClass('is-success');
+          $('.dragform form').removeClass('is-uploading');
           droppedFiles = false;
           pickedFiles = false;
           $('.dragform label').html('<strong>Choose an image</strong><span class="box__dragndrop"> or drag it here</span>.')
@@ -356,7 +376,5 @@ $(window).scroll(animateWings);
         });
 
     	}( document, window, 0 ));
-
-
 
     });

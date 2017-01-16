@@ -275,6 +275,12 @@ p#result {
   background-color: "red";
 }
 
+#fruitname {
+  font-family: "Slabo 27px",sans-serif;
+  text-transform: uppercase;
+  font-size: 36px;
+}
+
 /*end dynamic styling*/
 
 .flexbio {
