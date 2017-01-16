@@ -163,10 +163,10 @@ $(window).scroll(animateWings);
     					form.dispatchEvent( event );
     				};
 
-          var formData = new FormData();
+          /*var formData = new FormData();
           for (var i = 0; i < droppedFiles.length; i++) {
-          formData.append('file', droppedFiles[i]);
-          }
+          formData.prepend('file', droppedFiles[i]);
+        }*/
 
     			// automatically submit the form on file select
     			input.addEventListener( 'change', function( e )
@@ -174,6 +174,7 @@ $(window).scroll(animateWings);
             pickedFiles = e.target.files;
     				showFiles( pickedFiles );
             console.log(pickedFiles);
+            droppedFiles = false;
     				triggerFormSubmit();
 
 
@@ -210,9 +211,7 @@ $(window).scroll(animateWings);
     				form.addEventListener( 'drop', function( e )
     				{
     					droppedFiles = e.dataTransfer.files; // the files that were dropped
-    					showFiles( droppedFiles );
-
-
+    					showFiles(droppedFiles);
     					triggerFormSubmit();
 
     				});
@@ -248,6 +247,7 @@ $(window).scroll(animateWings);
               }
 
                 var inFile = droppedFiles[0];
+                console.log(droppedFiles);
                 var filename = inFile.name;
                 var storageRef = firebase.storage().ref();
                 var folderRef = storageRef.child('images');
@@ -287,6 +287,9 @@ $(window).scroll(animateWings);
                     })
                     console.log(imageURL);
                     $("#replay").css("display","block");
+                    $("#ready").css("display","none");
+                    $("#loading").css("display","block");
+                    $("#result").css("display","block");
                   });
 
 
@@ -338,6 +341,22 @@ $(window).scroll(animateWings);
     			input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
 
     		});
+
+        $("#replay").click(function(){
+          $('.is-success img').remove();
+          $('.dragform form').remove('is-error');
+          $('.dragform form').remove('is-success');
+          $('.dragform form').remove('is-uploading');
+          droppedFiles = false;
+          pickedFiles = false;
+          $('.dragform label').html('<strong>Choose an image</strong><span class="box__dragndrop"> or drag it here</span>.')
+          $('#loading, #result').css("display","none");
+          $('#ready').css("display","block");
+          $(this).css("display","none");
+        });
+
     	}( document, window, 0 ));
+
+
 
     });

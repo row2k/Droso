@@ -140,15 +140,18 @@ a:visited {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: left;
+  align-items: center;
   margin-bottom: 20%;
 }
 
 .readytext {
   flex: .5 0 0;
   margin-top: 50px;
-  margin-left: 25px;
   font-size: 25px;
+}
+
+#loading, #ready {
+  margin-left: -15vw;
 }
 
 .dragform {
@@ -259,8 +262,17 @@ strong:hover {
   padding-top: 14px;
   font-weight: bold;
   color: white;
-  margin-left: 25%;
-  margin-top: -5vh;
+  margin-top: -10vh;
+}
+
+p#loading {
+  display: none;
+  background-color: "red";
+}
+
+p#result {
+  display: none;
+  background-color: "red";
 }
 
 /*end dynamic styling*/
