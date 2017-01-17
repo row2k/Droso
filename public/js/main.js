@@ -128,6 +128,12 @@ $(window).scroll(animateWings);
      this.auth = firebase.auth();
      this.storage = firebase.storage();
 
+     //var imgtextRef = this.database().ref('images/');
+     /*imgtextRef.on('value', function(snapshot) {
+       var curImages = imgtextRef.snapshot.val();
+       console.log(curImages);
+     });*/
+
         //JS for the drag and drop
 
 
@@ -163,10 +169,10 @@ $(window).scroll(animateWings);
     					form.dispatchEvent( event );
     				};
 
-          var formData = new FormData();
+          /*var formData = new FormData();
           for (var i = 0; i < droppedFiles.length; i++) {
-          formData.append('file', droppedFiles[i]);
-          }
+          formData.prepend('file', droppedFiles[i]);
+        }*/
 
     			// automatically submit the form on file select
     			input.addEventListener( 'change', function( e )
@@ -174,6 +180,7 @@ $(window).scroll(animateWings);
             pickedFiles = e.target.files;
     				showFiles( pickedFiles );
             console.log(pickedFiles);
+            droppedFiles = false;
     				triggerFormSubmit();
 
 
@@ -210,9 +217,7 @@ $(window).scroll(animateWings);
     				form.addEventListener( 'drop', function( e )
     				{
     					droppedFiles = e.dataTransfer.files; // the files that were dropped
-    					showFiles( droppedFiles );
-
-
+    					showFiles(droppedFiles);
     					triggerFormSubmit();
 
     				});
@@ -248,6 +253,7 @@ $(window).scroll(animateWings);
               }
 
                 var inFile = droppedFiles[0];
+                console.log(droppedFiles);
                 var filename = inFile.name;
                 var storageRef = firebase.storage().ref();
                 var folderRef = storageRef.child('images');
@@ -268,25 +274,38 @@ $(window).scroll(animateWings);
                     console.log('Upload is paused');
                     break;
                     case firebase.storage.TaskState.RUNNING: // or 'running'
-                    console.log('Upload is running');
                     form.classList.add('is-uploading');
+                    console.log('Upload is running');
                     break;
                   }
                   }, function(error) {
                     form.classList.remove('is-uploading');
                     form.classList.add('is-error');
                   }, function() {
+
                     // Handle successful uploads on complete
                     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
                     form.classList.remove('is-uploading');
                     form.classList.add('is-success');
                     console.log('success');
+
                     var imageURL = storageRef.child('/images/'+filename+'').getDownloadURL();
                     imageURL.then(function(url){
-                      $('.is-success').prepend('<img src="'+ url + '"/>');
+                    //  $('.is-success').prepend('<img src="'+ url + '"/>');
+                    $('.is-success').css('background-image','url("'+ url +'")');
                     })
                     console.log(imageURL);
                     $("#replay").css("display","block");
+                    $("#ready").css("display","none");
+                    $("#loading").css("display","block");
+                    $("#result").css("display","block");
+
+
+                    firebase.database().ref('images/image1').once('value').then(function(snapshot) {
+                      var imgText = snapshot.val();
+                      console.log(imgText);
+                      $("#fruitname").html(''+ imgText +'');
+                    });
                   });
 
 
@@ -338,6 +357,26 @@ $(window).scroll(animateWings);
     			input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
 
     		});
+
+        $("#play a").click(function(event) {
+          event.preventDefault();
+        });
+
+        $("#replay").click(function(event){
+          event.preventDefault;
+          //$('.is-success img').remove();
+          $('.is-success').css('background-image','none');
+          $('.dragform form').removeClass('is-error');
+          $('.dragform form').removeClass('is-success');
+          $('.dragform form').removeClass('is-uploading');
+          droppedFiles = false;
+          pickedFiles = false;
+          $('.dragform label').html('<strong>Choose an image</strong><span class="box__dragndrop"> or drag it here</span>.')
+          $('#loading, #result').css("display","none");
+          $('#ready').css("display","block");
+          $(this).css("display","none");
+        });
+
     	}( document, window, 0 ));
 
     });
