@@ -40,20 +40,29 @@
       </div>
       <div class="flex-small" id="play">
         <div class="readytext">
-          Ready to begin analysis...
+          <p id="ready">
+            Ready to begin analysis...
+          </p>
+          <p id="loading">
+            Analyzing...
+          </p>
+          <p id="result">It's a <span id="fruitname">BLANK</span>!</p>
         </div>
         <div class ="dragform">
           <form class="box" method="post" action="" enctype="multipart/form-data">
+            <div class="box__uploading"><img src="img/default.gif" /></div>
             <div class="box__input">
               <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
               <label for="file"><strong>Choose an image</strong><span class="box__dragndrop"> or drag it here</span>.</label>
               <button class="box__button" type="submit">Upload</button>
             </div>
-            <div class="box__uploading">Uploading&hellip;</div>
-            <div class="box__success">Done!</div>
+            <div class="box__success"></div>
             <div class="box__error">Error! <span></span>.</div>
           </form>
         </div>
+        <a href="#" id="noreplay"><div id="replay">
+          Click here to play again!
+        </div></a>
       </div>
     </div>
   </div>
@@ -86,12 +95,23 @@
   Copyright 2016 - Droso Group
 </footer>
 
-
+<script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD5A7KxFmSQDMrXUc6ONa52U2CuQnyVPsw",
+    authDomain: "droso-d8c39.firebaseapp.com",
+    databaseURL: "https://droso-d8c39.firebaseio.com",
+    storageBucket: "droso-d8c39.appspot.com",
+    messagingSenderId: "687279264592"
+  };
+  firebase.initializeApp(config);
+</script>
   <!--Jquery-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="js/jquery.fullPage.min.js"></script>
   <!--Easing plugin-->
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
   <script src="js/modernizr-custom.js"></script>
   <script src="js/main.js"></script>

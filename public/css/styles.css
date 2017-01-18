@@ -52,7 +52,8 @@ body {
 
 .maincontainer {
   min-width: 400px;
-  height: 300vh;
+  height: 290vh;
+  overflow: hidden;
 }
 /*--------flex layout-------------------*/
 .flexmain {
@@ -72,7 +73,7 @@ body {
 .flex-small {
   flex-grow: 1;
   flex-basis: 0;
-  height: 100%;
+  height: calc(100% - 50px);
 }
 /*testing*/
 /*.flex-small:nth-of-type(2) {
@@ -140,14 +141,18 @@ a:visited {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: left;
+  align-items: center;
+  margin-bottom: 20%;
 }
 
 .readytext {
   flex: .5 0 0;
-  margin-top: 50px;
-  margin-left: 25px;
+  margin-top: 10px;
   font-size: 25px;
+}
+
+#loading, #ready {
+  margin-left: -15vw;
 }
 
 .dragform {
@@ -172,13 +177,20 @@ a:visited {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 200px;
-  width: 300px;
+  background-color: white;
+  outline: 2px dashed black;
+  height: 80%;
+  width: 80%;
 }
 
 .box__input {
-  width: 100%;
+  width: 80%;
   text-align: center;
+  white-space: normal;
+}
+
+.box__file + label {
+  word-wrap: break-word;
 }
 
 .box__file {
@@ -211,13 +223,6 @@ strong:hover {
   margin: 20px auto;
 }
 
-.box.has-advanced-upload {
-  background-color: white;
-  outline: 2px dashed black;
-  outline-offset: -10px;
-  height: 60%;
-  width: 80%;
-}
 .box.has-advanced-upload .box__dragndrop {
   display: inline;
 }
@@ -232,11 +237,58 @@ strong:hover {
 .box.is-uploading .box__uploading {
   display: block;
   padding-top: 20px;
+  border: none;
 }
 
-.box.is-error {
+.box.is-error .box__error{
   display: block;
-  content: "Error!";
+}
+
+.box.is-success .box__success {
+  display: block;
+  padding-top: 20px;
+  border: none;
+  text-align: center;
+}
+
+/*.box.is-success img {
+  flex: 1 0 0;
+  max-width: 80%;
+  max-height: 80%;
+}*/
+
+.box.is-success {
+  background-size: cover;
+  /*background-repeat: no-repeat;*/
+}
+
+#replay {
+  border-radius: 5px;
+  display: none;
+  width: 250px;
+  background-color: #227772;
+  height: 35px;
+  text-align: center;
+  padding-top: 14px;
+  font-weight: bold;
+  color: white;
+  margin-top: -15px;
+}
+
+p#loading {
+  display: none;
+  background-color: "red";
+}
+
+p#result {
+  display: none;
+  background-color: "red";
+}
+
+#fruitname {
+  font-family: "Slabo 27px",sans-serif;
+  text-transform: uppercase;
+  font-size: 36px;
 }
 
 /*end dynamic styling*/
