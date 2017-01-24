@@ -38,7 +38,7 @@ window.setInterval(blinkEyes, 3000);
 //stop fly fixed position before reaching bios
 var windw = this;
 $.fn.followTo = function(pos){var $this = this,$window = $(windw);$window.scroll(function(e){
-if ($(window).scrollTop() >= pos - 150) {
+if ($(window).scrollTop() >= pos - 200) {
   $this.css({
     position: 'absolute',
     top: pos - 50
