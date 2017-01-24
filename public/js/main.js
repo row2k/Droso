@@ -38,10 +38,10 @@ window.setInterval(blinkEyes, 3000);
 //stop fly fixed position before reaching bios
 var windw = this;
 $.fn.followTo = function(pos){var $this = this,$window = $(windw);$window.scroll(function(e){
-if ($(window).scrollTop() > pos) {
+if ($(window).scrollTop() >= pos - 150) {
   $this.css({
     position: 'absolute',
-    top: 150 + pos
+    top: pos + 0
   });
 } else {
   $this.css({
@@ -50,7 +50,10 @@ if ($(window).scrollTop() > pos) {
   });
 }
 });};
-$('#drosoWrapper').followTo(700);
+var stopscroll = $(".bio-wrapper").offset().top;
+var flyscroll = $('#drosoWrapper').offset().top;
+var netscroll = stopscroll - flyscroll;
+$('#drosoWrapper').followTo(netscroll);
 //fly move wings
 function animateWings() {
   if($("#droso").offset().top % 7 == 0) {
