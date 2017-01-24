@@ -41,7 +41,7 @@ $.fn.followTo = function(pos){var $this = this,$window = $(windw);$window.scroll
 if ($(window).scrollTop() >= pos - 150) {
   $this.css({
     position: 'absolute',
-    top: pos + 0
+    top: pos - 50
   });
 } else {
   $this.css({
