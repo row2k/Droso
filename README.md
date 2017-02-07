@@ -16,6 +16,7 @@ Hi, I'm Droso :honeybee:, my full name is _drosophila melanogaster_, a common fr
 ### Phase I {Current MVP (GA FEWD 29)}
 - [x] fruitfly blink, scroll animation
 - [x] scrolling nav
+- [x] firebase hosted
 - [x] Handwritten digit recognition. (MNIST)
 - [x] Algorithmia API, random forest classifier
 - [ ] **ajax call json file, return val**
